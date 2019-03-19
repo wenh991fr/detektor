@@ -29,15 +29,15 @@
       <th scope="col">Accion</th>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let motive of motives">
-      <th scope="row">{{motive.ID}}</th>
-      <td *ngIf="motive.state">{{motive.motive}}</td>
+    <tbody *ngFor="let motive of motives">
+    <tr *ngIf="motive.state == true" >
+      <th  scope="row">{{motive.ID}}</th>
+      <td>{{motive.motive}}</td>
       <td>
         <button class="btn btn-light btn-sm" (click)="selectMotive(motive)">
           <i class="fas fa-pen"></i>
         </button>
-        <button class="btn btn-danger btn-sm" >
+        <button class="btn btn-danger btn-sm" (click)="deleteMotive(motive)">
           <i class="fas fa-trash-alt"></i>
         </button>
       </td>

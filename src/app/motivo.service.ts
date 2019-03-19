@@ -38,8 +38,11 @@ export class MotivoService {
     return this.http.put<Motivo>(`${this.endpoint}editar`, motive, );
   }
 
-  deletePolicy(id: number) {
-    return this.http.delete<Motivo>(`${this.endpoint}eliminar&id=${id}`);
+  deletePolicy(motive: Motivo) {
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    return this.http.put<Motivo>(`${this.endpoint}editar`, motive, );
   }
 
 }

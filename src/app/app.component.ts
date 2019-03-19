@@ -43,6 +43,16 @@ export class AppComponent implements OnInit {
     this.edition = true;
   }
 
+  deleteMotive(motive: Motivo) {
+    motive.state = false;
+    this.motivoService.updateMotive(motive).subscribe((f: Motivo) => {
+      console.log(`motivo eliminado: ${motive.motive}`);
+      this.motivoService.getMotivos().subscribe((motives: Motivo[]) => {
+        console.log('Listo');
+      });
+    });
+  }
+
   editMotive(f) {
     const temporal: Motivo = {
       ID: this.selectedMotive.ID, motive: f.value.motive, state: true
