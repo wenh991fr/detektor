@@ -1,0 +1,51 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<form #f="ngForm">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Motivo" name="motive" [(ngModel)] = "selectedMotive.motive" ng-required="true">
+  </div>
+  <button *ngIf="!edition" type="submit" class="btn  btn-primary btn-block" (click)="addMotive(f)">Agregar</button>
+  <button *ngIf="edition" type="submit" class="btn  btn-secondary btn-block" (click)="editMotive(f)">Editar</button>
+</form>
+
+<hr>
+
+<div class="card">
+  <div class="text-center card-header">
+    Listado de Motivos
+  </div>
+
+
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Motivo</th>
+      <th scope="col">Accion</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let motive of motives">
+      <th scope="row">{{motive.ID}}</th>
+      <td *ngIf="motive.state">{{motive.motive}}</td>
+      <td>
+        <button class="btn btn-light btn-sm" (click)="selectMotive(motive)">
+          <i class="fas fa-pen"></i>
+        </button>
+        <button class="btn btn-danger btn-sm" >
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+
