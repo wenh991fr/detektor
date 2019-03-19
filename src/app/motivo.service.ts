@@ -9,7 +9,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 })
 export class MotivoService {
 
-  endpoint = 'http://localhost:8888/test/?a='; //  http://localhost:8888/test/?a=  https://test-detektor.000webhostapp.com/?a=
+  endpoint = 'https://prueba1.bit.hn/?a='; //  http://prueba1.bit.hn/?a=  https://test-detektor.000webhostapp.com/?a=
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json'
